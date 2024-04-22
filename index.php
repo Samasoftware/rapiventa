@@ -10,6 +10,3 @@
 </body>
 </html>
 
-<?php
-//header("Location: vender.php");
-?>

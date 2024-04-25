@@ -1,3 +1,4 @@
+•web demo con bd se ejecuta en este link: https://orange-potato-xjrvv6wwg7pfp559-3000.app.github.dev/vender.php
 •haciendo 10abr 7pm:
 -deja hacer ventas vacías.
 •hacer 16abr:

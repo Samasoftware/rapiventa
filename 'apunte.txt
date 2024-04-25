@@ -1,0 +1,85 @@
+•haciendo 10abr 7pm:
+-deja hacer ventas vacías.
+•hacer 16abr:
+-CAJA: columna emitidos y anulados, añadir rapi en detalle de caja.
+-vender: confirmacion.
+-usuario relacionado a caja.
+-anular actualiza dinero y stock.
+•requerimientos totales:
+ - ALMACEN
+ 	- REGISTRO DE INSUMOS (MATERIA PRIMA, CONFIGURABLE POR ESTIMADO ENTRE UNIDAD DE MEDIDA, TRANSFORMACIONES DE UNIDAD DE MEDIDA, EJEMPLO: COMPRAR 12 KG DE HUEVOS PERO EN UNIDADES INGRESAN 180 HUEVOS)
+	- REGISTRO DE PRODUCTOS(RECETARIO, PRECIOS, PROMOCIONES, DESCUENTOS)
+	- OPERACION DE REQUERIMIENTOS (REVISAR LOS REQUERIMIENTOS DE OTROS PUNTOS DE VENTA Y APROBAR O MODIFICAR LOS REQUERIMIENTOS EXISTENTES, ESTO GENERA STOCK EN ALMACEN SOLICITANTE)
+	- OPERACION DE TRASLADOS (TRASLADAR ENTRE ALMACENES DE UNA MISMA EMPRESA O CORPORACION)
+	- OPERACIÓN DE MERMAS (PODER CUADRAR MATERIA PRIMA O PRODUCTOS DAÑADOS, PERDIDOS O MALOGRADOS)
+	- OPERACION DE EXCESOS (PODER CUADRAR MATERIA PRIMA O PRODUCTOS EN SOBRANTE SIN SABER ORIGEN)
+	- OPERACIÓN DE COMPRAS (COMPRAS INGRESAN STOCK A ALMACEN, PUEDEN GENERAR CUENTAS POR PAGAR LOS PAGOS PENDIENTES)
+ 	- ORDENES DE COMPRA PARA PROVEEDORES (SE GENERAN ORDENES DE COMPRA PARA LOS PROVEEDORES)
+	
+
+ - VENTAS
+	- OPERACION DE REQUERIMIENTOS (SOLICITAR REQUERIMIENTO DE TRASLADO DE PLANTA O CENTRAL A PUNTO DE VENTA, RECIBIR Y VERIFICAR REQUERIMIENTO APROBADO PARA QUE SE PUEDA TENER STOCK) SIN STOCK DE NO SE VENDE
+	- OPERACION DE PUNTO DE VENTA (VENTAS CON BOLETA, FACTURA O TICKET INTERNO, POSIBLES CRÉDITOS, DESCUENTOS, PAGOS MIXTOS, IMPRESIÓN DE TICKET, SELECTOR DE CANTIDADES EN INCREMENTO, CARGA DE CLIENTES REGISTRADOS, PAGOS PARCIALES, DESCUENTO DE MATERIA PRIMA AL MOMENTO DE VENDER Y ESTO A PARTIR DE LA RECETA DEL PRODUCTO VENDIDO, PODER SABER LA MATERIA PRIMA UTILIZADA HASTA EL MOMENTO Y CUANTO QUEDA EN EL ALMACÉN INTERNO, ANULACIÓN DE VENTA SIN ELIMINAR EL REGISTRO PERO SI RETORNAR EL STOCK)
+	- CONTROL DE JORNADA POR CAJA (APERTURAR Y CERRAR CAJA POR JORNADA O POR TURNO PARA PODER HACER UN ARQUEO Y VISUALIZAR LOS MONTOS RECAUDADOS EN LO MEDIOS DE PAGO EFECTIVO, TARJETA, YAPE, PLIM, SERVICE_COMIDA CONSIDERAR PORCENTAJE)
+	- CONTROL DE GASTOS CON CAJA CHICA Y CENTRO DE COSTO.
+	- ELABORAR UNA GESTIÓN DE DELIVERY.
+ 	- CONSIDERAR UNA GESTIÓN DE MESAS Y LOCALES.
+
+	
+ - FINANZAS
+	- CUENTAS POR COBRAR.
+	- CUENTAS POR PAGAR.
+	- FLUJO DE CAJA.
+	- INFORME DE GANANCIAS.
+
+ - REPORTES
+	- REGISTRO DE VENTAS (POR COMANDAS, POR TICKETS, POR TIPOS)
+	- REGISTRO DE COMPRAS
+	- REGISTRO DE CUENTAS
+	- KARDEX
+	- REGISTRO DE CAJAS
+ 	- REGISTRO DE TRANSACCIONES
+•trabajar con bd externa en codespaces:
+link del foro: https://github.com/orgs/community/discussions/45444
+ejecutar en terminal: curl -L https://gist.githubusercontent.com/GitHub30/2d51bfa327a6eddbde33b77214511584/raw/install_pdo_mysql.gh-codespaces.sh | bash
+instalar manualmente:
+cd
+VERSION=$(php -r 'echo phpversion();')
+wget https://www.php.net/distributions/php-$VERSION.tar.gz
+tar xf php-$VERSION.tar.gz 
+cd php-$VERSION/ext/pdo_mysql
+phpize
+./configure
+make
+make test
+make install
+sed -i 's/;extension=pdo_mysql/extension=pdo_mysql/' /opt/php/$VERSION/ini/php.ini
+
+php -i | grep drivers
+otros comandos:
+# mysqli
+curl -L https://gist.githubusercontent.com/GitHub30/0b8d548d0912ff4cc7b065e378904fd0/raw/install_mysqli.gh-codespaces.sh | bash
+# mysqli manualmente:
+cd
+VERSION=$(php -r 'echo phpversion();')
+wget https://www.php.net/distributions/php-$VERSION.tar.gz
+tar xf php-$VERSION.tar.gz 
+cd php-$VERSION/ext/mysqli
+phpize
+./configure
+make
+echo n | make test
+make install
+sed -i 's/;extension=mysqli/extension=mysqli/' /opt/php/$VERSION/ini/php.ini
+
+php -m | grep mysqli
+# exif
+curl -L https://gist.githubusercontent.com/GitHub30/0b8d548d0912ff4cc7b065e378904fd0/raw/install_exif.gh-codespaces.sh | bash
+# imagick
+curl -L https://gist.githubusercontent.com/GitHub30/0b8d548d0912ff4cc7b065e378904fd0/raw/install_imagick.gh-codespaces.sh | bash
+# zip
+curl -L https://gist.githubusercontent.com/GitHub30/0b8d548d0912ff4cc7b065e378904fd0/raw/install_zip.gh-codespaces.sh | bash
+# gd
+curl -L https://gist.githubusercontent.com/GitHub30/0b8d548d0912ff4cc7b065e378904fd0/raw/install_gd.gh-codespaces.sh | bash
+# intl
+curl -L https://gist.githubusercontent.com/GitHub30/0b8d548d0912ff4cc7b065e378904fd0/raw/install_intl.gh-codespaces.sh | bash
